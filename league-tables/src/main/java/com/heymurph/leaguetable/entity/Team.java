@@ -18,22 +18,17 @@ public class Team {
 	
 	@Column(name="name")
 	private String name;
-	
-	@Column(name="rating")
-	private Double rating;
-	
+
 	public Team() {
 	}
 
-	public Team(String name, Double rating) {
+	public Team(String name) {
 		this.name = name;
-		this.rating = rating;
 	}
 	
-	public Team(int id, String name, Double rating) {
+	public Team(int id, String name) {
 		this.id = id;
 		this.name = name;
-		this.rating = rating;
 	}
 
 	public int getId() {
@@ -52,16 +47,8 @@ public class Team {
 		this.name = name;
 	}
 
-	public Double getRating() {
-		return rating;
-	}
-
-	public void setRating(Double rating) {
-		this.rating = rating;
-	}
-
 	@Override
 	public String toString() {
-		return "Team [id=" + id + ", name=" + name + ", rating=" + rating + "]";
+		return "Team [id=" + id + ", name=" + name  + "]";
 	}
 }
