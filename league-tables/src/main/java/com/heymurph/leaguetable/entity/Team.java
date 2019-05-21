@@ -1,22 +1,14 @@
 package com.heymurph.leaguetable.entity;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 @Entity
-@Table(name="team")
 public class Team {
-	
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id")
-	private int id;
-	
-	@Column(name="name")
+
+	private Integer id;
 	private String name;
 
 	public Team() {
@@ -25,17 +17,13 @@ public class Team {
 	public Team(String name) {
 		this.name = name;
 	}
-	
-	public Team(int id, String name) {
-		this.id = id;
-		this.name = name;
-	}
 
-	public int getId() {
+	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
