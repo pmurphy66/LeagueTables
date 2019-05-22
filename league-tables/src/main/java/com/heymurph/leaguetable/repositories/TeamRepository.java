@@ -1,4 +1,4 @@
-package com.heymurph.leaguetable.dao;
+package com.heymurph.leaguetable.repositories;
 
 import java.util.List;
 

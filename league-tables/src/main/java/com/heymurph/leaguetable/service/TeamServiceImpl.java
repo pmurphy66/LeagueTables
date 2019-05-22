@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.heymurph.leaguetable.dao.TeamRepository;
 import com.heymurph.leaguetable.entity.Team;
+import com.heymurph.leaguetable.repositories.TeamRepository;
 
 @Service
 public class TeamServiceImpl implements TeamService {

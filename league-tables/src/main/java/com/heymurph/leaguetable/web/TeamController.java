@@ -1,4 +1,4 @@
-package com.heymurph.leaguetable.controller;
+package com.heymurph.leaguetable.web;
 
 import java.util.List;
 
