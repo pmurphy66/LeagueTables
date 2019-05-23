@@ -12,7 +12,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-	
+
 	@Autowired
 	private UserDetailsService userDetailsService;
 
@@ -20,29 +20,24 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	public PasswordEncoder getPasswordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
-	
+
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.userDetailsService(userDetailsService)
-			.passwordEncoder(getPasswordEncoder());
-		
-//		auth.inMemoryAuthentication()
-//			.passwordEncoder(getPasswordEncoder())
-//			.withUser("paul@heymurph.com")
-//			.password(getPasswordEncoder().encode("asdfasdf"))
-//			.roles("USER");
+		 auth.userDetailsService(userDetailsService)
+		 	 .passwordEncoder(getPasswordEncoder());
 	}
-	
+
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-				.antMatchers("/").permitAll()
-				.anyRequest().hasRole("USER").and()
+			.antMatchers("/").permitAll()
+			.antMatchers("/register").permitAll()
+			.anyRequest()
+			.hasRole("USER").and()
 			.formLogin()
 				.loginPage("/login")
 				.defaultSuccessUrl("/dashboard")
-				.permitAll()
-				.and()
+				.permitAll().and()
 			.logout()
 				.logoutUrl("/logout")
 				.permitAll();

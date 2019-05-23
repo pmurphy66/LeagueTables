@@ -20,10 +20,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
   public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
     User user = userRepo.findByUsername(username);
     
-    if (user == null)
-      throw new UsernameNotFoundException("Invalid Username and password");
-    
+    if (user == null) {
+        throw new UsernameNotFoundException("Invalid Username and password");    	
+    }
     return new CustomSecurityUser(user);
   }
-
 }
